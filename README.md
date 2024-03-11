@@ -36,3 +36,53 @@ public  - to save assets
 
 
 
+3. installing bootstrap
+---using the CDN or Content Delivery Network
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    />  in head of index.html
+
+
+---got warning messages saying package deprecated 
+     npm auditfix --force   more vulnerablities
+     revert to previos package json and npm install again
+     git log package-lock.json
+     git checkout [ID] -- package-lock.json
+---then create react app is not a suitable option 
+    use vite :If  app doesn’t have an existing setup for compiling JavaScript modules, set it up with Vite.
+
+    or next js
+
+
+# Next.js’ Pages Router 
+
+# Day 02     -Mar 11
+# JSX
+Is a syntax extension to represent Markup
+it turns into javascript objects
+
+The Rules of JSX 
+1. Return a single root element 
+can wrap into on parent using div tag or fragment <>   </>
+
+2.close all the tags
+JSX requires tags to be explicitly closed: self-closing tags like <img> must become <img />
+
+3.camelCase all most of the things
+ attributes written in JSX become keys of JavaScript objects.
+variable names can’t contain dashes or be reserved words like class
+
+{ } to reference JS variable inside JSX
+curly braces: A window into the JavaScript world 
+
+{} can only be used in
+--As attributes immediately following the = sign: 
+--As text directly inside a JSX tag: 
+
+
+# Rendering elements
+
+
+
+# React hooks
