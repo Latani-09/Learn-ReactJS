@@ -5,9 +5,10 @@ Uncontrolled components are the simplest way to implement form inputs. There are
 Controlled Inputs */
 const Form = () => { 
     const inputRef = useRef(null); 
-    
+    const fileref=useRef(null);
     const handleSubmit = () => { 
       const inputValue = inputRef.current.value; 
+      const files = fileInput.current.files; 
       // Do something with the value 
     } 
     const [value, setValue] = useState(""); 
@@ -21,6 +22,10 @@ const Form = () => {
       <form onSubmit={handleSubmit}> 
         <input ref={inputRef} type="text"  ///uncontrolled      
          /> 
+              <input    //file inputs are always uncontrolled
+       ref={fileInput} 
+       type="file" 
+     /> 
       </form> 
             <form> 
             <input 
