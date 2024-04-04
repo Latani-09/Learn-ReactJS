@@ -144,10 +144,21 @@ Most of the time this error occurs javascript heap went out of the memory.
 # react dom
 A React component has a one-to-one relationship to a HTML element that is displayed on the webpage and React keeps track of which HTML elements need to be updated. 
 # create forms                --march 27
-    we can create two components (inputs) in react form 
+we can create two components (inputs) in react form 
 controlled & uncontrolled
 Controlled mean the input is in synced using state on every update(type delete check uncheck) where it is saved and controlled by onchange attribute/function
 uncontrolled mean input is only synced when submitting form
 useRef hook is used. 
 this helps to validate inputs before submitting it.
+
+# form validaton   --march 28
+
+
+# context
+Question 2
+Assuming that the default theme for the application is ‘light’, what should be the default value passed to the createContext call? 
+undefined 
+null 
+The string "light"
+--the default value is not relevant and can be any value. It’s only useful for testing components in isolation or as a default value when a context consumer does not have a Provider further up in the tree.
 

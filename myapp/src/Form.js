@@ -2,29 +2,35 @@ import { useState } from "react";
 import  "./Form.css";
 
 function Form(){
-    const [username,setUsername]=useState('');
+    const [username,setUsername]=useState({value:'',isTouched:false});
     const [nameText,setNameText]=useState('');
     const [purpose,setPurpose]=useState('');
     const [dob,setDob]=useState('');
     const checkContainUpper=()=>{
+        console.log('checkContainUpper')
         const regex=new RegExp("[A-Z]");
         const result= regex.test(username)?(""):(<p style={{color:'red'}} >Must contain atleast one Upper Case letter</p>);
         return result;
     }
     const checkContainNumber=()=>{
+        console.log('checkContainNumber')
         const regex=new RegExp("[0-9]");
         const result= regex.test(username)?(""):(<p style={{color:'red'}}>Must contain atleast one digit(0-9)</p>);
         return result;
     }
     const checkLength=()=>{
-
+        console.log('checkLength')
         const result= (username.length>=8)?(""):(<p style={{color:'red'}}>Must contain atleast 8 characters</p>);
         return result;
     }
-
+    const errorsUsername=()=>{
+        return (<div>{checkContainNumber()}{checkContainUpper()}{checkLength()}</div>)
+    }
     const handleUserNameChange=(e)=>{
         e.preventDefault();    //to prevent default behaviour of react form  automatical empty the input field
-        setUsername(e.target.value);
+        setUsername({isTouched:true,value:e.target.value});
+
+
     };
     const handleNameChange=(e)=>{
         e.preventDefault();    
@@ -47,11 +53,11 @@ function Form(){
                     <label htmlFor="username">User name</label>
                 </div>
                 <div className="col-3">
-                    <input type="text" id="username" value={username} onChange={e=>handleUserNameChange(e)}></input>
+                    <input type="text" id="username" value={username.value} onChange={e=>handleUserNameChange(e)}  onFocus={setUsername({...username,isTouched:true})} ></input>
                     
                 </div>
                 <div className="col-6" style={{textAlign:'left' ,marginInline:'1px'}}>
-                {checkContainNumber()}{checkContainUpper()}{checkLength()}
+                {username.isTouched?checkLength():('')}     {/* always */}
                 </div>
                 </div>
             <div className="box">

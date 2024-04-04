@@ -1,5 +1,22 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.3"
-  }
+  },
+  "name": "graphql",
+  "description": "This repository is a tracking system for my journey of learning React JS",
+  "version": "1.0.0",
+  "main": "wordlib.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Latani-09/Learn-ReactJS.git"
+  },
+  "author": "latani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Latani-09/Learn-ReactJS/issues"
+  },
+  "homepage": "https://github.com/Latani-09/Learn-ReactJS#readme"
 }
