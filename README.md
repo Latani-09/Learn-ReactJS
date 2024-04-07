@@ -141,6 +141,8 @@ This is probably not a problem with npm. There is likely additional logging outp
 node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --prod
 Most of the time this error occurs javascript heap went out of the memory. 
 
+
+
 # react dom
 A React component has a one-to-one relationship to a HTML element that is displayed on the webpage and React keeps track of which HTML elements need to be updated. 
 # create forms                --march 27
@@ -161,4 +163,8 @@ undefined
 null 
 The string "light"
 --the default value is not relevant and can be any value. It’s only useful for testing components in isolation or as a default value when a context consumer does not have a Provider further up in the tree.
+
+# redux
+a single centralized place to contain the global state 
+specific patterns to follow when updating that state to make the code predictable.
 
