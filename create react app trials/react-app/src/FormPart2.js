@@ -1,38 +1,49 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import {useState} from 'react';
-import { formEntry,formContainer } from './styles';
-import {Input} from './Components';
+import { formEntry ,formContainer} from './styles';
+
 //console.log(jsonobj);
 
-function FormPart2({onNextChange,onPrevChange,formData,setFormData}){
-function onNameChange(){}
+
+
+function FormPart2({onPrevChange,formData,setFormData}){
+
+    
+
+    function  onNext(){
+       console.log(formData)
+       onPrevChange();
+
+    }
+    const inputObj=[
+        {id:"SpouseName",name:"Name",type:"text",onChange:(e)=>{setFormData({...formData,spouse:{...formData.spouse,Name:e.target.value}});console.log('form',formData)}},
+        {id:"SpouseAge",name:"Age",type:"number",onChange:(e)=>{setFormData({...formData,spouse:{...formData.spouse,age:e.target.value}});console.log('form',formData)}},
+        {id:"Occupation",name:"Occupation",type:"text",onChange:(e)=>{setFormData({...formData,spouse:{...formData.spouse,Occupation:e.target.value}});console.log('form',formData)}}
+    ]
 
     return<>
-    <div className='container-fluid ' style={formContainer}>
+    <div style={formContainer}>
     <form >
-    <div className="container">
-        <h1>Family Details</h1>
-        <div className='inputGrp'>
-        <h4>Spouse Details</h4>
-        <Input id="spouseName" type='text' label='Name' name='spouseName' setFormInput={setFormData} formData={formData} />
-        <Input id="spouseAge" type='number' label='Age' name='spouseAge' setFormInput={setFormData} formData={formData} />
-        <Input id="spouseOccupation" type='text' label='Occupation' name='occupation' setFormInput={setFormData} formData={formData} />
-        </div>
-        <div className='inputGrp'>
-        <h4>Child Details</h4>
+    
+    <div className="container ">
+        <h1>Spouse Details</h1>
+        {inputObj.map((obj)=>(
+        <div key={obj.id} className='row' style={formEntry}>
+            <div className='col-4' style={{ textAlign:'left'}}>
+                <label htmlFor={obj.id} >{obj.name}</label></div>
+            <div className='col-8'>
+                <input name={obj.name} id={obj.id} type={obj.type} onChange={obj.onChange} style={{ width:'100%'}} ></input>
+            </div>
+        </div>))
+         }
         
-        <Input id="childName" type='text' label='Child Name' name='childName' setFormInput={setFormData} formData={formData} />
-        <Input id="childAge" type='number' label='Child Age' name='childAge' setFormInput={setFormData} formData={formData} />
-        <Input id="childNIC" type='number' label='Child Age' name='childNIC' setFormInput={setFormData} formData={formData} />
-        <Input id="childOccupation" type='text' label='Occupation' name='occupation' setFormInput={setFormData} formData={formData} />
-        </div>
+        
 
-     <div className='row'>
-        <div className='col-4'>
-     <button type='submit' style={formEntry}onClick={onPrevChange}>Prev</button></div>
-     <div className='col-4'></div>
+    
+     <div className='row ' style={formEntry}>
+     <div className='col-8'></div>
      <div className='col-4'>
-     <button type='submit' style={formEntry} onClick={onNextChange}>Next</button></div>
+     <button type='button' style={formEntry} onClick={onNext} >Next</button></div>
      </div>
     </div>
 </form>
