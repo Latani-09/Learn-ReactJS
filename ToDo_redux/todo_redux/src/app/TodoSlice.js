@@ -5,14 +5,15 @@ const intialState={
         {id:2,text:'Pay bill',completed:false,color:'green'}
     ]
 }
-function nextTodoId(todos){
-    const maxId=todos.reduce((todo,maxId)=>Math.max(todo.id,maxId),-1);
-    return maxId+1;
-}
+function nextTodoId(todos) {
+    const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1)
+    return maxId + 1
+  }
+
 export default function todoReducer(state=intialState,action){
     switch(action.type){
         case 'toDos/Add':
-            return {...state, todos:[...state.todos,{id:nextTodoId(todos),text:action.payload,completed:false}]}
+            return {...state, todos:[...state.todos,{id:nextTodoId(state.todos),text:action.payload,completed:false}]}
 
         default:
             return state;

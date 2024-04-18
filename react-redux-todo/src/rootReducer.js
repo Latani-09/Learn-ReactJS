@@ -1,6 +1,7 @@
-import todoReducer from '../../../../react-redux-todo/src/TodoSlice';
+import todoReducer from './TodoSlice';
 import {combineReducers} from 'redux';
 const rootReducer=combineReducers({
-        todos:todoReducer
+        todos:todoReducer,
+        users:usersReducer
     })
 export default rootReducer;

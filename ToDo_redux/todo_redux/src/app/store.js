@@ -1,5 +1,7 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {applyMiddleware, configureStore} from '@reduxjs/toolkit';
 import rootReducer from './rootReducer';
+import {print1,print2,print3} from './enhancer';
+import {logger} from 'redux-logger';
 
 let preloadedState
 
@@ -10,5 +12,12 @@ if (persistedTodosString) {
     todos: JSON.parse(persistedTodosString)
   }
 }
-const store=configureStore({reducer:rootReducer});
+console.log(typeof(print1));
+const middlewareEnhancer=applyMiddleware(print1,print2);
+const store=configureStore({reducer:rootReducer,middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+  thunk: {
+    extraArgument: middlewareEnhancer,
+  },
+  serializableCheck: false,
+})});
 export default store;
